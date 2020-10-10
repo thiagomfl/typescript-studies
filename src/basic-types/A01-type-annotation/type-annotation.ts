@@ -23,7 +23,7 @@ const person: Person = {
 console.log(person)
 
 // Funções
-function sum(x: number, y: number) {
+export function sum(x: number, y: number) {
   return x + y
 }
 
