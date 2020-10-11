@@ -264,10 +264,6 @@ Lembre-se de que os membros da string enum não recebem um mapeamento reverso ge
 Na maioria dos casos, enums são uma solução perfeitamente válida. No entanto, às vezes os requisitos são mais restritos. Para evitar o custo de código extra gerado e indireção adicional ao acessar valores enum, é possível usar enums const. Enums Const são definidos usando o modificador const em nossos enums:
 
 ```typescript
-
-```
-
-```typescript
 const enum Enum {
   A = 1,
   B = A * 2

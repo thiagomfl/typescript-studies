@@ -221,3 +221,42 @@ function logger(s: NetworkState): string {
 ```
 
 Aqui, ***assertNever*** verifica se s é do tipo ***`never`*** - o tipo que resta depois que todos os outros casos foram removidos. Se você esquecer um caso, então s terá um tipo real e você obterá um erro de tipo. Este método requer que você defina uma função extra, mas é muito mais óbvio quando você a esquece, porque a mensagem de erro inclui o nome do tipo ausente.
+
+## Use Union Types
+
+Não escreva sobrecargas que diferem por tipo em apenas uma posição de argumento:
+
+```typescript
+/* ERRADO */
+interface Moment {
+  utcOffset(): number;
+  utcOffset(b: number): Moment;
+  utcOffset(b: string): Moment;
+}
+```
+
+Use tipos de união sempre que possível:
+
+```typescript
+/* OK */
+interface Moment {
+  utcOffset(): number;
+  utcOffset(b: number | string): Moment;
+}
+```
+
+Observe que não tornamos b opcional aqui porque os tipos de retorno das assinaturas são diferentes.
+
+***Motivo***: isso é importante para as pessoas que estão "***transferindo***" um valor para sua função:
+
+```typescript
+function fn(x: string): void;
+function fn(x: number): void;
+
+function fn(x: number | string) {
+  // Quando escrito com sobrecargas separadas, incorretamente um erro
+  // Quando escrito com tipos de união, corretamente OK
+  return moment().utcOffset(x);
+}
+```
+
