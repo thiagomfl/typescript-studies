@@ -7,6 +7,6 @@ const person = {
   name: 'Thiago' as const
 }
 
-person.name = 'Priscila'
+// person.name = 'Priscila'
 
 export default 1
