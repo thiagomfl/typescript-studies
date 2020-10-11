@@ -2,7 +2,7 @@
 
 O TypeScript tem um tipo especial, ***any***, que você pode usar sempre que não quiser que um determinado valor cause erros de verificação de tipo.
 
-Quando um valor é do tipo qualquer, você pode acessar quaisquer propriedades dele (que por sua vez serão do tipo qualquer), chamá-lo como uma função, atribuí-lo a (ou de) um valor de qualquer tipo ou praticamente qualquer outra coisa isso é sintaticamente legal:
+Quando um valor é do tipo ***any***, você pode acessar quaisquer propriedades dele (que por sua vez serão do tipo ***any***), chamá-lo como uma função, atribuí-lo a (ou de) um valor de qualquer tipo ou praticamente qualquer outra coisa isso é sintaticamente legal:
 
 ```typescript
 let obj: any = { x: 0 };
@@ -25,7 +25,7 @@ declare function getValue(key: string): any;
 const str: string = getValue("myString");
 ```
 
-Qualquer tipo é uma maneira poderosa de trabalhar com o JavaScript existente, permitindo que você gradualmente aceite e desative a verificação de tipo durante a compilação.
+O tipo ***any*** é uma maneira poderosa de trabalhar com o JavaScript existente, permitindo que você gradualmente aceite e desative a verificação de tipo durante a compilação.
 
 Ao contrário do tipo ***unknow***, as variáveis do tipo ***any*** permitem que você acesse propriedades arbitrárias, mesmo aquelas que não existem. Essas propriedades incluem funções e o TypeScript não verificará sua existência ou tipo:
 
@@ -54,4 +54,4 @@ Afinal, lembre-se de que toda a comodidade de qualquer um vem com o custo de per
 
 ## noImplicitAny
 
-Quando um tipo não é especificado e não pode ser inferido a partir do contexto, o TypeScript normalmente será padronizado como any. Como quaisquer valores não se beneficiam da verificação de tipo, geralmente é desejável evitar essas situações. O sinalizador do compilador ***noImplicitAny*** fará com que qualquer ***any*** implícito seja sinalizado como um erro.
+Quando um tipo não é especificado e não pode ser inferido a partir do contexto, o TypeScript normalmente será padronizado como ***any***. Como quaisquer valores não se beneficiam da verificação de tipo, geralmente é desejável evitar essas situações. O sinalizador do compilador ***noImplicitAny*** fará com que qualquer ***any*** implícito seja sinalizado como um erro.
