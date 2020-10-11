@@ -1,4 +1,4 @@
-# Type Anotations
+# Type Annotations
 
 ## Anotações de tipo em variáveis
 Ao declarar uma variável usando const, var ou let, você pode opcionalmente adicionar uma anotação de tipo para especificar explicitamente o tipo da variável:
